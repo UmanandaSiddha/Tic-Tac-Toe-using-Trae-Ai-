@@ -57,7 +57,7 @@ export const useGame = (gameId: string | null, playerId: string) => {
         setError(null);
         setRetryCount(0); // Reset retry count on successful game state
       } catch (err) {
-        setError('Error processing game state');
+        setError(`Error processing game state ${err}`);
       }
     });
 
@@ -68,7 +68,7 @@ export const useGame = (gameId: string | null, playerId: string) => {
         setError(null);
         setRetryCount(0); // Reset retry count on successful player join
       } catch (err) {
-        setError('Error processing player join event');
+        setError(`Error processing player join event ${err}`);
       }
     });
 
@@ -132,7 +132,7 @@ export const useGame = (gameId: string | null, playerId: string) => {
       setGameState(updatedGame);
       setError(null);
     } catch (error) {
-      setError('Failed to make move');
+      setError(`Failed to make move ${error}`);
     }
   };
 
@@ -151,7 +151,7 @@ export const useGame = (gameId: string | null, playerId: string) => {
       setError(null);
       return data.gameId;
     } catch (error) {
-      setError('Failed to create game');
+      setError(`Failed to create game ${error}`);
       return null;
     }
   };
