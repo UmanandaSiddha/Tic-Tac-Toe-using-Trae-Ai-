@@ -6,7 +6,7 @@ const games = new Map<string, GameState>();
 const connections = new Map<string, Set<ReadableStreamController<Uint8Array>>>();
 const playerConnections = new Map<string, string>(); // Track which game a player is connected to
 
-function sendEventToClients(gameId: string, event: string, data: any) {
+function sendEventToClients(gameId: string, event: string, data: unknown) {
   const gameConnections = connections.get(gameId);
   if (gameConnections) {
     const eventData = `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`;
